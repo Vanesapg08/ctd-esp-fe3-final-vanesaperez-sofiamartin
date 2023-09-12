@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:aliceblue;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .logo-red {
+    color: red;
+  }
+  
+  .nav-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+  }
+
+  .header.dark {
+    background-color: black;
+  }
+  
+  .header.dark .nav-links a {
+    color: white;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
