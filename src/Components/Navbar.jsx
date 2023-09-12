@@ -13,7 +13,7 @@ function Navbar() {
       <div className="nav-links">
         <a href="/">Home</a>
         <a href="/contact">Contact</a>
-        <a href="/favs">Favs</a>
+        <a href="/favs">favs</a>
       </div>
 
       <button onClick={() => setDarkMode(!darkMode)}>
