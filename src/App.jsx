@@ -8,7 +8,7 @@ function App() {
   return (
       <div className="App">
           <Navbar/>
-          <div id="detail">
+          <div id="detail" style={{padding: '30px 30px'}}>
             <Outlet />
           </div>
           <Footer/>
