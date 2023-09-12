@@ -11,9 +11,9 @@ function Navbar() {
       </span>
 
       <div className="nav-links">
-        <a href="#home">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="#favs">Favs</a>
+        <a href="/">Home</a>
+        <a href="/contact">Contact</a>
+        <a href="/favs">Favs</a>
       </div>
 
       <button onClick={() => setDarkMode(!darkMode)}>
