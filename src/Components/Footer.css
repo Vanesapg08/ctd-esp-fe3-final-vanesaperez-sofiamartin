@@ -1,0 +1,39 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+  }
+  .divisor-rojo {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .footer.dark {
+    background-color: black;
+  }
+  
+  .logo {
+    filter: none;
+    max-width: 400px;
+  }
+  
+  .footer.dark .logo {
+    
+    filter: invert(1);
+  }
+  
+  .social-icons img {
+    max-width: 30px;
+    
+    margin-right: 10px;
+    filter: invert(1);
+  }
+  
+  .footer.dark .social-icons img {
+    filter: none ;
+  }
+  
