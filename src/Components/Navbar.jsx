@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Navbar.css';
+import { AppContext } from '../App';
 
 function Navbar() {
-  const [darkMode, setDarkMode] = useState(false); // Por defecto es el tema claro
+  const {darkMode, setDarkMode} = useContext(AppContext);
 
   return (
     <div className={`header ${darkMode ? 'dark' : ''}`}>
@@ -11,7 +12,7 @@ function Navbar() {
       </span>
 
       <div className="nav-links">
-        <a href="/">Home</a>
+        <a href="/home">Home</a>
         <a href="/contact">Contact</a>
         <a href="/favs">favs</a>
       </div>

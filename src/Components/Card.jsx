@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from 'react';
 import './Card.css';
+import { AppContext } from '../App';
 
+const Card = ({ name, username, id,  }) => {
+  const {darkMode, setDarkMode} = useContext(AppContext);
+  
+  // Estado para saber si esta tarjeta es favorita o no
+  const [isFav, setIsFav] = useState(false);
 
-const Card = ({ name, username, id }) => {
+  // Consulta a localStorage cuando el componente se monta y actualiza
+  useEffect(() => {
+    const favs = JSON.parse(localStorage.getItem('favs')) || {};
+    setIsFav(!!favs[id]); // Si esta tarjeta está en favs, setIsFav a true, sino a false
+  }, [id]);
 
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+  const addFav = () => {
+    const favs = JSON.parse(localStorage.getItem('favs')) || {};
+    favs[id] = { name, username, id }; // Guarda esta tarjeta en el objeto favs
+    localStorage.setItem('favs', JSON.stringify(favs));
+    setIsFav(true);
+  };
+
+  const removeFav = () => {
+    const favs = JSON.parse(localStorage.getItem('favs')) || {};
+    delete favs[id]; // Elimina esta tarjeta del objeto favs
+    localStorage.setItem('favs', JSON.stringify(favs));
+    setIsFav(false);
+  };
 
   return (
-    <div className="card">
-      <img src='/images/doctor.jpg'/>
-      <h3>clementine</h3>
-      <p>dret</p>S
-        {/* En cada card deberan mostrar en name - username y el id */}
+    <div className="card" data-theme={darkMode ? 'dark' : ''}>
+      <img src='/images/doctor.jpg' alt={`Imagen de ${name}`} />
+      <h2>{name}</h2>
+      <p>{username}</p>
+      <p>ID: {id}</p>
 
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+      {/* En base al estado isFav, muestra el botón correspondiente */}
+      {isFav ? (
+        <button onClick={removeFav} className={`favButton ${darkMode ? 'dark' : ''}`}>⛔ Quitar de fav</button>
+      ) : (
+        <button onClick={addFav} className={`favButton ${darkMode ? 'dark' : ''}`}>💛 Add fav</button>
+      )}
     </div>
   );
 };

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Footer.css';
+import { AppContext } from '../App';
 
 function Footer() {
-  const [darkMode, setDarkMode] = useState(false); // Sofi estoy hay que sustituirlo luego por el context
+  const {darkMode, setDarkMode} = useContext(AppContext);
 
   return (
     <>

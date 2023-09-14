@@ -1,0 +1,24 @@
+/* Variables comunes */
+:root {
+    --font-color: #000;
+    --background-color: #fff;
+    --card-background: #f1f1f1;
+    --card-border: #ddd;
+}
+
+/* Modo oscuro */
+[data-theme="dark"] {
+    --font-color: #fff;
+    --background-color: #121212;
+    --card-background: #242424;
+    --card-border: #333;
+}
+
+.home {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s; /* transiciones suaves al cambiar de tema */
+}
+
