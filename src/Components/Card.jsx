@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './Card.css';
 import { AppContext } from '../App';
+import { Link } from 'react-router-dom';
 
 const Card = ({ name, username, id,  }) => {
   const {darkMode, setDarkMode} = useContext(AppContext);
@@ -29,6 +30,7 @@ const Card = ({ name, username, id,  }) => {
   };
 
   return (
+    <Link to={`/dentist/${id}`} >
     <div className="card" data-theme={darkMode ? 'dark' : ''}>
       <img src='/images/doctor.jpg' alt={`Imagen de ${name}`} />
       <h2>{name}</h2>
@@ -42,6 +44,7 @@ const Card = ({ name, username, id,  }) => {
         <button onClick={addFav} className={`favButton ${darkMode ? 'dark' : ''}`}>💛 Add fav</button>
       )}
     </div>
+    </Link>
   );
 };
 
