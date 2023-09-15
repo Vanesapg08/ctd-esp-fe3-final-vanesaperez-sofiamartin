@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useState } from 'react';
 import { Outlet } from "react-router-dom";
 import Footer from "./Components/Footer";
